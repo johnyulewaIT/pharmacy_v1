@@ -300,7 +300,7 @@ $finalcode='Invoice No-  '.createRandomPassword();
                                         ?>
 
                                         <?php 
-										$sql ="SELECT SUM(total) as 'total' FROM purchase_order";
+										$sql ="SELECT SUM(price) as 'price' FROM purchase_order";
 								//create a query that fetch data from the database
 								$res = mysqli_query($conn,$sql);
 								$data = mysqli_fetch_array($res);	
@@ -308,9 +308,9 @@ $finalcode='Invoice No-  '.createRandomPassword();
                                         <h4 class="card-title">Opening Balance</h4>
                                        
                                         <?php 
-                                         $total = $data['total'];
+                                         $total = $data['price'];
                                         ?>
-                                        <h2 class="card-title"><?php echo  $opening_balance -$total; ?></h2>
+                                        <h2 class="card-title"><?php echo  $opening_balance -$price; ?></h2>
                                     </div>
                                     
                                 </div>
@@ -328,13 +328,13 @@ $finalcode='Invoice No-  '.createRandomPassword();
                                 <div class="d-md-flex align-items-center">
                                     <div>
                                     <?php 
-										$sql ="SELECT SUM(total) as 'total' FROM purchase_order WHERE status = '0' ";
+										$sql ="SELECT SUM(price) as 'price' FROM purchase_order WHERE status = '0' ";
 								//create a query that fetch data from the database
 								$res = mysqli_query($conn,$sql);
 								$data = mysqli_fetch_array($res);	
 									   ?>
                                        <h4 class="card-title">Account Payable</h4>
-                                        <h2 class="card-title"><?php echo $data['total'];?></h2>
+                                        <h2 class="card-title"><?php echo $data['price'];?></h2>
                                        
                                     </div>
                                     
