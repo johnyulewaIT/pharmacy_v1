@@ -5,7 +5,7 @@
 $dbHost = "Localhost";
 $dbUser = "root";
 $dbPass = "";
-$dbName = "waka_pharmacy";
+$dbName = "pharmacy_v1";
 
 	$conn = mysqli_connect($dbHost, $dbUser, $dbPass, $dbName);
 	if(!$conn){
