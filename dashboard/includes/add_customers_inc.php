@@ -23,7 +23,7 @@ if(isset($_POST['submit'])){
 $res = mysqli_query($conn, $query);
 
 if($res = true){
-	header("Location:../patients.php");
+	header("Location:../index.php");
 
 }
 
