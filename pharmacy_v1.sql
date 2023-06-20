@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 17, 2021 at 07:28 AM
--- Server version: 10.4.6-MariaDB
--- PHP Version: 7.3.9
+-- Generation Time: Jun 20, 2023 at 11:12 AM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -40,7 +39,7 @@ CREATE TABLE `admitted_patients` (
   `patient_condation` varchar(200) NOT NULL,
   `DOA` date NOT NULL DEFAULT current_timestamp(),
   `DOD` varchar(6) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `admitted_patients`
@@ -62,7 +61,7 @@ CREATE TABLE `damaged` (
   `price` varchar(255) NOT NULL,
   `amount` varchar(255) NOT NULL,
   `qty` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `damaged`
@@ -83,7 +82,7 @@ CREATE TABLE `diagnosis` (
   `id` int(10) NOT NULL,
   `diagnosis_name` varchar(255) NOT NULL,
   `description` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `diagnosis`
@@ -106,7 +105,7 @@ CREATE TABLE `diagonisis_list` (
   `id` int(10) NOT NULL,
   `diagonisis_name` varchar(255) NOT NULL,
   `symptoms` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `diagonisis_list`
@@ -129,7 +128,7 @@ CREATE TABLE `dicharge_process` (
   `service_name` varchar(255) NOT NULL,
   `description` varchar(255) NOT NULL,
   `price` varchar(250) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -143,7 +142,7 @@ CREATE TABLE `expired_medince` (
   `date_expired` varchar(100) NOT NULL,
   `amount` varchar(100) NOT NULL,
   `qty` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `expired_medince`
@@ -176,7 +175,7 @@ CREATE TABLE `info` (
   `opening_date` varchar(255) NOT NULL,
   `closing_balance` varchar(255) NOT NULL,
   `opening_balance` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -191,7 +190,7 @@ CREATE TABLE `inventory` (
   `capacity` varchar(255) NOT NULL,
   `qty_item` varchar(255) NOT NULL,
   `price` varchar(200) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- --------------------------------------------------------
 
@@ -203,7 +202,7 @@ CREATE TABLE `laboratory_tests` (
   `id` int(10) NOT NULL,
   `test_name` varchar(255) NOT NULL,
   `price` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `laboratory_tests`
@@ -226,7 +225,7 @@ CREATE TABLE `lab_results` (
   `patient_no` varchar(255) NOT NULL,
   `test_name` varchar(200) NOT NULL,
   `price` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -240,7 +239,7 @@ CREATE TABLE `lab_test` (
   `patient_no` varchar(255) NOT NULL,
   `test_name` varchar(255) NOT NULL,
   `price` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -257,7 +256,7 @@ CREATE TABLE `patients` (
   `status` varchar(12) NOT NULL DEFAULT '0',
   `patient_condation` varchar(200) NOT NULL,
   `admission_status` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `patients`
@@ -266,7 +265,8 @@ CREATE TABLE `patients` (
 INSERT INTO `patients` (`id`, `patient_no`, `patient_name`, `location`, `dob`, `status`, `patient_condation`, `admission_status`) VALUES
 (55, 'Invoice No-  242222', 'John Doe', 'Kenya', '2021-06-02', '0', '', ''),
 (56, 'Invoice No-  372057', 'Sample Patient 2', 'Kenya', '2021-06-23', '1', '', ''),
-(57, 'Invoice No-  2802732', 'jane doe', 'Kenya', '2021-05-31', '0', '', '');
+(57, 'Invoice No-  2802732', 'jane doe', 'Kenya', '2021-05-31', '0', '', ''),
+(58, 'Invoice No-  2230202', 'Suprime C', 'Nyeri', '2023-04-02', '0', '', '');
 
 -- --------------------------------------------------------
 
@@ -290,7 +290,7 @@ CREATE TABLE `pharmacy_stock` (
   `price_dosage` varchar(255) NOT NULL DEFAULT '0',
   `app` varchar(255) NOT NULL,
   `half_dosage_price` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `pharmacy_stock`
@@ -298,10 +298,10 @@ CREATE TABLE `pharmacy_stock` (
 
 INSERT INTO `pharmacy_stock` (`id`, `medicine_name`, `pharmacy_Qty`, `expiry_date`, `amount`, `stock_out`, `price`, `capacity`, `type`, `sale_date`, `dosage_sold`, `dosage`, `price_dosage`, `app`, `half_dosage_price`) VALUES
 (1, 'Brufen', '0', '2023-06-15', '', '', '30', '10', 'tablet', '', '', '', '', '', 0),
-(2, 'Piliton', '21', '2023-06-15', '', '', '50', '50mg', 'tablet', '', '', '', '', '', 0),
+(2, 'Piliton', '21', '2023-06-15', '', '', '30', '50mg', 'tablet', '', '', '', '', '', 0),
 (3, 'Cetrizin', '2', '0000-00-00', '', '', '25', '50mg', 'tablet', '', '', '', '', '', 0),
 (4, 'Jadell', '1', '2023-10-17', '', '', '500', '60mg', 'tablet', '', '', '', '', '', 0),
-(5, 'Piliton', '57', '2023-10-18', '', '', '', '60ml', 'Tablet', '', 'Yes', '10', '100', '100', 50),
+(5, 'Piliton', '54', '2023-10-18', '', '', '', '60ml', 'Tablet', '', 'Yes', '10', '100', '100', 50),
 (6, 'Paracetamal', '0', '2027-02-27', '', '', '100', '50mg', 'Tablet', '', '', '', '', '', 0),
 (7, 'ABZ', '0', '2023-06-20', '', '', '20', '60mg', 'Tablet', '', '', '', '', '', 0),
 (9, 'Panadol', '0', '2021-06-01', '', '', '20', '60mg', 'Tablet', '', '', '', '', '', 0);
@@ -318,7 +318,7 @@ CREATE TABLE `pharmacy_stock_items` (
   `capacity` varchar(255) NOT NULL,
   `price` varchar(255) NOT NULL,
   `expiry_date` timestamp(6) NOT NULL DEFAULT current_timestamp(6) ON UPDATE current_timestamp(6)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `pharmacy_stock_items`
@@ -345,7 +345,7 @@ CREATE TABLE `purchase_order` (
   `supplier` varchar(244) NOT NULL,
   `status` varchar(10) NOT NULL DEFAULT '0',
   `purchase_no` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `purchase_order`
@@ -372,7 +372,7 @@ CREATE TABLE `sales` (
   `payment_change` varchar(200) NOT NULL,
   `total` varchar(200) NOT NULL,
   `time` time(6) NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `sales`
@@ -466,7 +466,7 @@ CREATE TABLE `sales_order` (
   `status` varchar(255) NOT NULL DEFAULT '0',
   `patient_no` varchar(200) NOT NULL,
   `medicine_name_id` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `sales_order`
@@ -525,7 +525,8 @@ INSERT INTO `sales_order` (`transaction_id`, `invoice`, `medicine_name`, `qty`, 
 (166, 'Invoice No-  372057', 'Piliton ', '1', '50', '50', 'Sample Patient 2', '0', '2021-06-30', '1', '56', '2'),
 (167, 'Invoice No-  242222', 'Piliton ', '1', '50', '50', 'John Doe', '0', '2021-06-30', '0', '55', '2'),
 (168, 'Invoice No-  372057', 'Piliton ', '2', '100', '50', 'Sample Patient 2', '0', '2021-06-30', '1', '56', '2'),
-(169, 'Invoice No-  372057', 'Piliton ', '1', '100', '100', 'Sample Patient 2', '0', '2021-06-30', '1', '56', '5');
+(169, 'Invoice No-  372057', 'Piliton ', '1', '100', '100', 'Sample Patient 2', '0', '2021-06-30', '1', '56', '5'),
+(170, 'Invoice No-  2230202', 'Piliton ', '3', '150', '100', 'Suprime C', '0', '2023-06-18', '0', '58', '5');
 
 -- --------------------------------------------------------
 
@@ -537,7 +538,7 @@ CREATE TABLE `services` (
   `id` int(12) NOT NULL,
   `service_name` varchar(255) NOT NULL,
   `price` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `services`
@@ -562,7 +563,7 @@ CREATE TABLE `service_order` (
   `patient_no` varchar(100) NOT NULL,
   `price` varchar(100) NOT NULL,
   `status` varchar(200) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `service_order`
@@ -597,21 +598,18 @@ CREATE TABLE `store` (
   `app` varchar(255) NOT NULL,
   `half_dosage_price` int(11) NOT NULL,
   `confirm` varchar(10) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `store`
 --
 
 INSERT INTO `store` (`id`, `medicine_name`, `date_received`, `Qty`, `expiry_date`, `amount`, `stock_out`, `price`, `capacity`, `type`, `dosage_sold`, `dosage`, `price_dosage`, `app`, `half_dosage_price`, `confirm`) VALUES
-(1, 'Brufen', '0000-00-00', '32', '2023-06-15', '', '0', '25', '10', 'tablet', '', '', '', '', 0, '0'),
-(2, 'Piliton', '0000-00-00', '13', '2023-06-15', '', '0', '25', '50mg', 'tablet', '', '', '', '', 0, '0'),
-(3, 'Cetrizin', '0000-00-00', '87', '2023-10-19', '', '0', '40', '50mg', 'tablet', '', '', '', '', 0, '1'),
 (4, 'Jadell', '0000-00-00', '47', '2023-10-17', '', '0', '500', '60mg', 'tablet', '', '', '', '', 0, '0'),
 (5, 'Piliton', '0000-00-00', '100', '2023-10-18', '', '0', '', '60ml', 'Tablet', 'Yes', '10', '100', '100', 50, '0'),
 (6, 'Paracetamal', '0000-00-00', '15', '2027-02-27', '', '0', '10', '50mg', 'Tablet', '', '', '0', '', 0, '0'),
 (7, 'ABZ', '0000-00-00', '14', '2023-06-20', '', '0', '10', '60mg', 'Tablet', '', '', '', '', 0, '0'),
-(9, 'Panadol', '0000-00-00', '6', '2021-06-01', '', '0', '15', '60mg', 'Tablet', '', '', '', '', 0, '1');
+(9, 'Panadol', '0000-00-00', '0', '2021-06-01', '', '0', '15', '60mg', 'Tablet', '', '', '', '', 0, '1');
 
 -- --------------------------------------------------------
 
@@ -625,7 +623,7 @@ CREATE TABLE `store_items` (
   `capacity` varchar(255) NOT NULL,
   `price` varchar(255) NOT NULL,
   `expiry_date` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `store_items`
@@ -644,19 +642,20 @@ INSERT INTO `store_items` (`id`, `item_name`, `capacity`, `price`, `expiry_date`
 CREATE TABLE `users` (
   `id` int(10) NOT NULL,
   `username` varchar(255) NOT NULL,
-  `password` varchar(200) NOT NULL,
-  `role` varchar(200) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `password` varchar(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `username`, `password`, `role`) VALUES
-(3, 'Nurse', 'Nurse', 'Nurse'),
-(4, 'Pharmacist', 'Pharmacist', 'Pharmacisit'),
-(5, 'Registrar', 'Registrar', 'Registrar'),
-(6, 'lab', 'lab', 'lab');
+INSERT INTO `users` (`id`, `username`, `password`) VALUES
+(3, 'Nurse', 'Nurse'),
+(4, 'Pharmacist', 'Pharmacist'),
+(5, 'Registrar', 'Registrar'),
+(6, 'lab', 'lab'),
+(12, 'John', '$2y$10$cx1jRJqjdXPjvuZvbyEcyO125zYri1iRa1waZAoQxKSicp4tMw1tO'),
+(13, 'james', '$2y$10$Bb7KlN.eLjecx2BFR6iADu391bC3DI6yzsWPlXjmhavSYdMfL6nti');
 
 -- --------------------------------------------------------
 
@@ -668,7 +667,7 @@ CREATE TABLE `wards` (
   `id` int(10) NOT NULL,
   `ward_name` varchar(255) NOT NULL,
   `capacity` int(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `wards`
@@ -866,7 +865,7 @@ ALTER TABLE `expired_medince`
 -- AUTO_INCREMENT for table `info`
 --
 ALTER TABLE `info`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `inventory`
@@ -896,7 +895,7 @@ ALTER TABLE `lab_test`
 -- AUTO_INCREMENT for table `patients`
 --
 ALTER TABLE `patients`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
 
 --
 -- AUTO_INCREMENT for table `pharmacy_stock`
@@ -926,7 +925,7 @@ ALTER TABLE `sales`
 -- AUTO_INCREMENT for table `sales_order`
 --
 ALTER TABLE `sales_order`
-  MODIFY `transaction_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=170;
+  MODIFY `transaction_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=171;
 
 --
 -- AUTO_INCREMENT for table `services`
@@ -956,7 +955,7 @@ ALTER TABLE `store_items`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `wards`
