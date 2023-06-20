@@ -205,24 +205,19 @@ $finalcode='Invoice No-  '.createRandomPassword();
                                 <div class="d-md-flex align-items-center ">
                                     <div>
                                     <?php 
-                                
-                                $sql = "SELECT * FROM store";
-                                //execute query
-                                $res = mysqli_query($conn, $sql);
-                                //count
-                                $count = mysqli_num_rows($res);
+                                $sql ="SELECT SUM(Qty) as 'Qty' FROM store";
+								//create a query that fetch data from the database
+								$res = mysqli_query($conn,$sql);
+								$data = mysqli_fetch_array($res);	
                                 ?>
-                                        <h4 class="card-title align-items-center">MEDICINE LIST</h3>
+                                        <h4 class="card-title align-items-center">MEDICINE STOCK</h3>
                                         
-                                        <h2 class="card-title"><?php echo $count?></h2>
+                                        <h2 class="card-title"><?php echo $data['Qty'];?></h2>
                                     </div>
                                     
                                 </div>
                               
-                                <?php 
-														
-														
-														
+                                <?php 																
 									$sql ="SELECT * FROM store";
 								//create a query that fetch data from the database
 								$res = mysqli_query($conn,$sql);
@@ -253,7 +248,28 @@ $finalcode='Invoice No-  '.createRandomPassword();
                                 </div>
                             </div>
                         </div>
-
+                        <div class="col-sm-3">
+                        <div class="card bg-danger text-white">
+                            <div class="card-body">
+                                <div class="d-md-flex align-items-center">
+                                    <div>
+                                   <?php 
+                                
+                                         $sql ="SELECT * FROM store WHERE Qty = '0'";
+                                        //execute query
+                                        $res = mysqli_query($conn, $sql);
+                                        //count
+                                        $count = mysqli_num_rows($res);
+                                        ?>
+                                        <h4 class="card-title">OUT OF STOCK</h4>
+                                        
+                                        <h2 class="card-title"><?php echo $count?></h2>
+                                    </div>
+                                    
+                                </div>
+                                </div>
+                            </div>
+                        </div>
                         <!--- ============================================ -->
                                             <!--- This is the count of all Expired Medicine---->
                        <!--- ============================================ -->
