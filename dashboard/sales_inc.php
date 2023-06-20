@@ -1,6 +1,6 @@
 <?php
 //insert.php
-$connect = mysqli_connect("localhost", "root", "", "waka_pharmacy");
+$connect = mysqli_connect("localhost", "root", "", "pharmacy_v1");
 if(isset($_POST["customer"]))
 {
  $customer = $_POST["customer"];
