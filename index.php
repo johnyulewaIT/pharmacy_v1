@@ -7,7 +7,7 @@ if(isset($_POST['submit'])){
 	$password=$_POST['password'];
 
     //echo "$username";
-    //echo "$password";
+   // echo "$password";
  
 	$sql="select * from users where username='$username' and password='$password'";
 	$res=mysqli_query($conn,$sql);
@@ -78,7 +78,7 @@ if(isset($_POST['submit'])){
                         </div>
                         <?php echo $error?>
                             </form>
-            
+            <p>Register here <a href="register.php">Here</a></p>
         </section>
     </div>
 </body>
