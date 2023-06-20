@@ -33,12 +33,7 @@ $finalcode='Patient_No.:  '.createRandomPassword();
     <!-- ============================================================== -->
     <!-- Preloader - style you can find in spinners.css -->
     <!-- ============================================================== -->
-    <div class="preloader">
-        <div class="lds-ripple">
-            <div class="lds-pos"></div>
-            <div class="lds-pos"></div>
-        </div>
-    </div>
+    
     <!-- ============================================================== -->
     <!-- Main wrapper - style you can find in pages.scss -->
     <!-- ============================================================== -->
@@ -104,7 +99,19 @@ $finalcode='Patient_No.:  '.createRandomPassword();
                                 <!-- title -->
                                 <div class="d-md-flex align-items-center">
                                     <div>
-                                        <h4 class="card-title">Store List </h4>  
+                                        <h4 class="card-title">Store List </h4> 
+                                        <?php 
+                                            if (isset($_SESSION['Dsuccess'])) {
+                                                echo $_SESSION['Dsuccess'];
+                                                unset ($_SESSION['Dsuccess']);
+                                            }
+                                ?>
+                                    <?php 
+                                            if (isset($_SESSION['Dfailed'])) {
+                                                echo $_SESSION['Dfailed'];
+                                                unset ($_SESSION['Dfailed']);
+                                            }
+                                ?> 
                                     </div> 
 									</div>
 									<div class="float-right"> <a href="manage_receiving1.php" class="btn btn-success float-right"> Receive Medicine</a>
@@ -121,8 +128,8 @@ $finalcode='Patient_No.:  '.createRandomPassword();
                                             <th class="border-top-0">Price</th> 
                                             <th class="border-top-0">Amount</th> 
                                             <th class="border-top-0">Expiry Date</th>
-                                            
-  
+                                            <th class="border-top-0">Action</th>
+                                            <th class="border-top-0"></th>
                                         </tr>
                                     </thead>
                                     <?php 
@@ -240,7 +247,8 @@ $finalcode='Patient_No.:  '.createRandomPassword();
 
                                           
                                             <td><?php echo $expiry_date; ?></td>                                    
-                                            
+                                            <td><a href="updateDrugs.php?id=<?php echo $id;?>" class="btn btn-success">Edit</a></td>
+                                            <td><a href="includes/deleteDrugs.php?id=<?php echo $id;?>" class="btn btn-danger">Delete</a></td>
                                         </tr>   
                                                       
                                     </tbody>
